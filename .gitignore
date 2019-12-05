@@ -1,0 +1,4 @@
+*~1
+*.lock
+_site
+.jekyl_cache

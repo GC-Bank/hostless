@@ -1,0 +1,21 @@
+#domain,name,type,target
+hostless.cf.,contact,RP,"ric.iph.heliohost.org. ."
+hostless.cf.,_expires,TXT,"07/01/2020"
+hostless.ga.,contact,RP,"ric.iph.heliohost.org. ."
+hostless.ga.,_expires,TXT,"07/01/2020"
+#hostless.gq.,@,A,104.198.14.52
+hostless.gq.,contact,RP,"ric.iph.heliohost.org. ."
+hostless.gq.,_dnslink,TXT,dnslink=/ipns/QmNzufyrKrzzL3eqNKe6iuDV875SN1Egn2PkKeWxtpNeTk
+hostless.gq.,_expires,TXT,"07/01/2020"
+hostless.gq.,@,MX,10 mail.mailinator.com
+hostless.gq.,*,NS,ns01.freenom.com
+hostless.gq.,www,CNAME,cadavre-exquis-b5d9571.netlify.com
+hostless.ml.,contact,RP,"ric.iph.heliohost.org. ."
+hostless.ml.,_expires,TXT,"07/01/2020"
+#hostless.tk.,@,A,104.198.14.52
+hostless.tk.,contact,RP,"ric.iph.heliohost.org. ."
+hostless.tk.,_dnslink,TXT,dnslink=/ipns/QmNzufyrKrzzL3eqNKe6iuDV875SN1Egn2PkKeWxtpNeTk
+hostless.tk.,_expires,TXT,"07/01/2020"
+hostless.tk.,@,MX,10 mail.mailinator.com
+hostless.tk.,*,NS,ns01.freenom.com
+hostless.tk.,www,CNAME,cadavre-exquis-b5d9571.netlify.com
