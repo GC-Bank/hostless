@@ -2,7 +2,11 @@
 <head><title>%title%</title>
 </head>
 <body>
-<div id=page>this is my page on %loc%</div>
+
+This site is served to you in a hostless manner ...
+
+<div id=page>searching ... This page is at %loc%
+(please wait until we find it)</div>
 
 <hr>
 <a href=https://michel47.github.io/hostless/>source</a>
@@ -24,7 +28,7 @@ fetch(url)
       resp.text().then( (page) => update(page) );
       }
       })
-.catch(function(error) { console.log('catch: '+error) }
+.catch(function(error) { console.log('catch: '+error) })
 
 
 function update() {
