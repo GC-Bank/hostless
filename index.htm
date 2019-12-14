@@ -5,10 +5,14 @@
 <body>
 
 This site is served to you in a hostless manner ...
+<hr>
 
 <div id=page>searching ...<br>
 This <a href="%page_url%">page</a> is not yet located on the internet,
 (please wait until we find its <a href="%url%">content</a>)
+
+<p>contact: %email%
+</p>
 </div>
 
 <hr>
@@ -23,9 +27,24 @@ var domain = document.location.hostname;
 var origin = document.location.origin;
 
 var domain_no_www = domain.replace(/www\./,'');
+var user = domain_no_www.replace(/\./g,'-');
+var email = user+'@'+domain_no_www;
+
 var url = GH + version + '/web/' + domain_no_www;
 var page_url = GH + version + '/web/' + domain_no_www + '/page.htm';
 console.log('url ',url);
+let head = document.getElementsByTagName('head')[0];
+    head.innerHTML = head.innerHTML.replace(/%title%/g,'hostless site ~ '+host);
+let body = document.getElementsByTagName('body')[0];
+let buf = body.innerHTML.replace(/%url%/g,url);
+    buf = buf.replace(/%page_url%/g,page_url);
+    buf = buf.replace(/%domain%/g,domain);
+    buf = buf.replace(/%origin%/g,origin);
+    buf = buf.replace(/%email%/g,email);
+    buf = buf.replace(/%url%/g,url);
+    body.innerHTML = buf;
+
+
 fetch(url)
 .then(function(resp) {
       status = resp.status
@@ -41,10 +60,6 @@ function update(content) {
 let loc = document.location.toString();
     loc = loc.replace(/#.*/,'');
 let fragment = window.location.hash.substring(1);
-let email = 'info@'+domain_no_www;
-
-let head = document.getElementsByTagName('head')[0];
-    head.innerHTML = head.innerHTML.replace(/%title%/g,'hostless site ~ '+host);
 
 var page = document.getElementById('page');
 let buf = content.replace(/%domain%/g,domain);
