@@ -1,0 +1,6 @@
+#name,type,ttl,record
+@,A,86400,104.198.14.52
+info,TXT,600,Verify your credentials
+@,MX,86400,10 mail.mailinator.com
+www,CNAME,86400,hostless.netlify.com
+*,NS,ns01.freenom.com
