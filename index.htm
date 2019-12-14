@@ -7,8 +7,9 @@
 This site is served to you in a hostless manner ...
 
 <div id=page>searching ...<br>
-This page is at %loc%
-(please wait until we find its <a href="%url%">content</a>)</div>
+This page is not yet located on the internet,
+(please wait until we find its <a href="%url%">content</a>)
+</div>
 
 <hr>
 <a href=https://michel47.github.io/hostless/>source</a>
@@ -20,7 +21,8 @@ var host = document.location.host;
 var domain = document.location.hostname;
 var origin = document.location.origin;
 
-var url = GH + version + '/web/' + domain + '/page.htm';
+let domain_no_www = domain.replace(/www\./,'');
+var url = GH + version + '/web/' + domain_no_www + '/page.htm';
 console.log('url ',url);
 fetch(url)
 .then(function(resp) {
@@ -33,15 +35,17 @@ fetch(url)
 .catch(function(error) { console.log('catch: '+error) })
 
 
-function update() {
-var loc = document.location.toString();
+function update(content) {
+let loc = document.location.toString();
     loc = loc.replace(/#.*/,'');
-var fragment = window.location.hash.substring(1);
-var email = 'info@'+document.location.hostname;
+let fragment = window.location.hash.substring(1);
+let email = 'info@'+document.location.hostname;
 
-//var body = document.getElementsByTagName('body')[0];
+let head = document.getElementsByTagName('head')[0];
+    head.innerHTML = head.innerHTML.replace(/%title%/g,'hostless site ~ '+host);
+
 var page = document.getElementById('page');
-var buf = page.innerHTML.replace(/%domain%/g,domain);
+let buf = content.replace(/%domain%/g,domain);
 
     buf = buf.replace(/%origin%/g,origin);
     buf = buf.replace('%host%',host);
@@ -50,7 +54,7 @@ var buf = page.innerHTML.replace(/%domain%/g,domain);
     buf = buf.replace(/%email%/g,email);
     buf = buf.replace(/%url%/g,url);
 
-    //console.log('buf: '+buf);
+    console.log('buf: '+buf);
     page.innerHTML = buf;
 }
 
