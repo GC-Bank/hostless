@@ -21,7 +21,7 @@ var host = document.location.host;
 var domain = document.location.hostname;
 var origin = document.location.origin;
 
-let domain_no_www = domain.replace(/www\./,'');
+var domain_no_www = domain.replace(/www\./,'');
 var url = GH + version + '/web/' + domain_no_www + '/page.htm';
 console.log('url ',url);
 fetch(url)
@@ -39,7 +39,7 @@ function update(content) {
 let loc = document.location.toString();
     loc = loc.replace(/#.*/,'');
 let fragment = window.location.hash.substring(1);
-let email = 'info@'+document.location.hostname;
+let email = 'info@'+domain_no_www;
 
 let head = document.getElementsByTagName('head')[0];
     head.innerHTML = head.innerHTML.replace(/%title%/g,'hostless site ~ '+host);
@@ -53,6 +53,7 @@ let buf = content.replace(/%domain%/g,domain);
     buf = buf.replace('%fragment%',fragment);
     buf = buf.replace(/%email%/g,email);
     buf = buf.replace(/%url%/g,url);
+    buf = buf.replace(/{{DUCK}}/g,'https://duckduckgo.com/?q');
 
     console.log('buf: '+buf);
     page.innerHTML = buf;
