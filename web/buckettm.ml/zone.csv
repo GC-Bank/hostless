@@ -1,0 +1,7 @@
+@,A,3600,104.198.14.52
+@,MX,3600,10 mail.mailinator.com
+www,A,3600,104.198.14.52
+www,CNAME,3600,cadavre.exquis.ml
+config,TXT,3600,name=bucket
+info,TXT,3600,A bucket for all your provisioning needs
+_script,TXT,3600,_script=/ipfs/Qme5Cutk938DWk6dgqvVAjiCRriwkve3nBzpSauJWqwCtn/hello.sh

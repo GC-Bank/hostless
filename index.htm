@@ -7,12 +7,13 @@
 This site is served to you in a hostless manner ...
 
 <div id=page>searching ...<br>
-This page is not yet located on the internet,
+This <a href="%page_url%">page</a> is not yet located on the internet,
 (please wait until we find its <a href="%url%">content</a>)
 </div>
 
 <hr>
-<a href=https://michel47.github.io/hostless/>source</a>
+<a href=https://michel47.github.io/hostless/>open source</a>
+<a href=https://michel47.github.io/hostless/LICENSE>MIT LICENSE</a>.
 <script>
 const version = 'master';
 const GH = 'https://raw.githubusercontent.com/michel47/hostless/';
@@ -22,7 +23,8 @@ var domain = document.location.hostname;
 var origin = document.location.origin;
 
 var domain_no_www = domain.replace(/www\./,'');
-var url = GH + version + '/web/' + domain_no_www + '/page.htm';
+var url = GH + version + '/web/' + domain_no_www;
+var page_url = GH + version + '/web/' + domain_no_www + '/page.htm';
 console.log('url ',url);
 fetch(url)
 .then(function(resp) {
@@ -53,6 +55,7 @@ let buf = content.replace(/%domain%/g,domain);
     buf = buf.replace('%fragment%',fragment);
     buf = buf.replace(/%email%/g,email);
     buf = buf.replace(/%url%/g,url);
+    buf = buf.replace(/%page%/g,page_url);
     buf = buf.replace(/{{DUCK}}/g,'https://duckduckgo.com/?q');
 
     console.log('buf: '+buf);
