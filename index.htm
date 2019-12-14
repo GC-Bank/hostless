@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <head><title>%title%</title>
+<meta charset="utf-8"/>
 </head>
 <body>
 
 This site is served to you in a hostless manner ...
 
-<div id=page>searching ... This page is at %loc%
-(please wait until we find it)</div>
+<div id=page>searching ...<br>
+This page is at %loc%
+(please wait until we find its <a href="%url%">content</a>)</div>
 
 <hr>
 <a href=https://michel47.github.io/hostless/>source</a>
@@ -46,10 +48,11 @@ var buf = page.innerHTML.replace(/%domain%/g,domain);
     buf = buf.replace('%loc%',loc);
     buf = buf.replace('%fragment%',fragment);
     buf = buf.replace(/%email%/g,email);
-    buf = page.replace(/%url%/g,url);
+    buf = buf.replace(/%url%/g,url);
+
+    //console.log('buf: '+buf);
+    page.innerHTML = buf;
 }
 
-//console.log('buf: '+buf);
-document.page.innerHTML = buf;
 </script>
 </body>

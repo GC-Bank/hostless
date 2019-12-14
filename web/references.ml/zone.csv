@@ -1,0 +1,8 @@
+#name,type,ttl,record
+@,A,86400,104.198.14.52
+contact,RP,0,essenctang.gmail.com .
+info,TXT,300,Knowledge Reference
+@,MX,86400,10 mail.mailinator.com
+*,NS,ns01.freenom.com
+www,A,300,104.198.14.52
+www,CNAME,86400,hostless.netlify.com
