@@ -7,6 +7,10 @@
 <body>
 
 This site is served to you in a hostless manner ...
+(using the IPFS network)
+
+Please run an instance of <a href={{site.search}}=install+IPFS>IPFS</a>
+to allow full access to this <a href={{site.url}}>site</a>.
 <hr>
 
 <div id=page>searching ...<br>
@@ -73,7 +77,7 @@ let buf = content.replace(/%domain%/g,domain);
     buf = buf.replace(/%email%/g,email);
     buf = buf.replace(/%url%/g,url);
     buf = buf.replace(/%page%/g,page_url);
-    buf = buf.replace(/{{DUCK}}/g,'https://duckduckgo.com/?q');
+    buf = buf.replace(/\{\{DUCK\}\}/g,'https://duckduckgo.com/?q');
 
     console.log('buf: '+buf);
     page.innerHTML = buf;
