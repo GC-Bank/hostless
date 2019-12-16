@@ -1,5 +1,6 @@
 --- # jekyll config file
 title: Hostless webSite (HWS™)
+# NETLIFY_SITE_ID
 #netname: gifted-lamarr-e658e4
 netname: hostless
 apiid: 1f161f02-f6b6-47be-b241-eb4b067c264c

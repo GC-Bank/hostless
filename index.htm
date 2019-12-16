@@ -44,7 +44,6 @@ let buf = body.innerHTML.replace(/%url%/g,url);
     buf = buf.replace(/%url%/g,url);
     body.innerHTML = buf;
 
-
 fetch(page_url)
 .then(function(resp) {
       status = resp.status

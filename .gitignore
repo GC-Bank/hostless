@@ -2,3 +2,6 @@
 *.lock
 _site
 .jekyl_cache
+
+# Local Netlify folder
+.netlify
