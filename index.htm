@@ -20,7 +20,8 @@ This <a href="%page_url%">page</a> is not yet located on the internet,
 <a href=https://michel47.github.io/hostless/LICENSE>MIT LICENSE</a>.
 <script>
 const version = 'master';
-const GH = 'https://raw.githubusercontent.com/michel47/hostless/';
+const raw = 'https://raw.githubusercontent.com/michel47/hostless/';
+const GH = 'https://michel47.github.io/hostless';
 var url = document.location.href;
 var host = document.location.host;
 var domain = document.location.hostname;
@@ -30,8 +31,8 @@ var domain_no_www = domain.replace(/www\./,'');
 var user = domain_no_www.replace(/\./g,'-');
 var email = user+'@'+domain_no_www;
 
-var url = GH + version + '/web/' + domain_no_www;
-var page_url = GH + version + '/web/' + domain_no_www + '/page.htm';
+var url = raw + version + '/web/' + domain_no_www;
+var page_url = GH + '/web/' + domain_no_www + '/page.htm';
 console.log('url ',url);
 let head = document.getElementsByTagName('head')[0];
     head.innerHTML = head.innerHTML.replace(/%title%/g,'hostless site ~ '+host);
