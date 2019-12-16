@@ -1,5 +1,6 @@
 --- # jekyll config file
 title: Hostless webSite (HWS™)
+ghuser: michel47
 # NETLIFY_SITE_ID
 #netname: gifted-lamarr-e658e4
 netname: hostless
