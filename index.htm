@@ -15,8 +15,9 @@ to allow full access to this <a href={{site.url}}>site</a>.
 <hr>
 
 <div id=page>searching ...<br>
-This <a href="%page_url%">page</a> is not yet located on the internet,
-(please wait until we find its <a href="%url%">content</a>)
+This <a href="%gpage%">page</a> is not yet located on the internet,
+(please wait until we find its <a href="%raw_html%">content</a>);
+however we can pull it from <a href=%url%>hostless</a> repository
 
 <p>contact: %email%
 </p>
@@ -30,7 +31,14 @@ This <a href="%page_url%">page</a> is not yet located on the internet,
 <script>
 const version = 'master';
 const raw = 'https://raw.githubusercontent.com/{{site.ghuser}}/hostless/';
+const blob = 'https://htmlview.github.io/?https://github.com/GCZone/hostless/blob/';
+const tree = 'https://github.com/GCZone/hostless/tree/';
 const GH = 'https://{{site.ghuser}}.github.io/hostless';
+/*
+https://github.com/GCZone/hostless/tree/master/web/hostless.gq
+https://htmlview.github.io/?https://github.com/GCZone/hostless/blob/master/web/hostless.gq/page.htm
+https://raw.githubusercontent.com/GCZone/hostless/master/web/hostless.gq/page.htm
+*/
 var url = document.location.href;
 var host = document.location.host;
 var domain = document.location.hostname;
@@ -40,21 +48,25 @@ var domain_no_www = domain.replace(/www\./,'');
 var user = domain_no_www.replace(/\./g,'-');
 var email = user+'@'+domain_no_www;
 
-var url = raw + version + '/web/' + domain_no_www;
-var page_url = GH + '/web/' + domain_no_www + '/page.htm';
+var url = GH + '/web/' + domain_no_www;
+var page_url = blob + version + '/web/' + domain_no_www + '/page.htm'; 
+var raw_html = raw + version + '/web/' + domain_no_www + '/page.html';
+var gpage = GH + '/web/' + domain_no_www + '/page.htm';
+
 console.log('url ',url);
 let head = document.getElementsByTagName('head')[0];
     head.innerHTML = head.innerHTML.replace(/%title%/g,'hostless site ~ '+host);
 let body = document.getElementsByTagName('body')[0];
 let buf = body.innerHTML.replace(/%url%/g,url);
     buf = buf.replace(/%page_url%/g,page_url);
+    buf = buf.replace(/%raw_html%/g,raw_html);
     buf = buf.replace(/%domain%/g,domain);
     buf = buf.replace(/%origin%/g,origin);
     buf = buf.replace(/%email%/g,email);
     buf = buf.replace(/%url%/g,url);
     body.innerHTML = buf;
 
-fetch(page_url)
+fetch(raw_html)
 .then(function(resp) {
       status = resp.status
       console.log('status: '+status);
